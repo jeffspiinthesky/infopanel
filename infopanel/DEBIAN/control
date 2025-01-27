@@ -1,0 +1,8 @@
+Package: pits-infopanel
+Version: 1.0.0
+Architecture: amd64
+Maintainer: my_email@co.uk
+Section: PITS
+Priority: required
+Description: Jeffs PI in the Sky info panel
+Depends: apache2, php, php-xml, unclutter, xdotool, cmake, scdoc, pkg-config 

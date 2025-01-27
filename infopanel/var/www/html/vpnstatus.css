@@ -1,0 +1,14 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+}
+.vpnstat {
+  display: block;
+  background-color: white;
+  width: 100vw;
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  overflow: hidden;
+}

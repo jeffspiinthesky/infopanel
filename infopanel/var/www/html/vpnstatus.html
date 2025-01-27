@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<script language="javascript">
+			function loadVpnStatus() {
+				// Now load up the VPN status
+				var vpnStatus = document.getElementById("vpnstatus");
+				var x = new XMLHttpRequest();
+				x.open("GET", "vpnstatus.php", true);
+				x.onreadystatechange = function () {
+					if (x.readyState == 4 && x.status == 200) {
+						vpnStatus.innerHTML=x.responseText;
+					}
+				};
+				x.send();
+				setTimeout(loadVpnStatus,60000);
+			}
+			window.onload=loadVpnStatus;
+
+		</script>
+		<link href="vpnstatus.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<div id="vpnstatus">&nbsp;</div>
+	</body>
+</html>

@@ -1,0 +1,17 @@
+<link href="{{ url_for('static', filename= 'css/vpnstatus.css') }}" rel="stylesheet"/>
+<div class="vpnstatus">
+    <div class="vpnstatusheader">	
+        <div class="vpnstatusagehdrcol">Age</div>
+        <div class="vpnstatusitemhdrcol">Item</div>
+        <div class="vpnstatuscodehdrcol">Code</div>
+        <div class="vpnstatusmessagehdrcol">Message</div>
+    </div>
+{% for status in status_list %}
+    <div class="vpnstatusrow">
+        <div style="background-color: {{ status['time_bg_colour'] }}" class="vpnstatusagecol">{{ status['timestamp'] }}{{ status['time_unit'] }}</div>
+        <div style="background-color: {{ status['status_bg_colour'] }}" class="vpnstatusitemcol">{{ status['vpn'] }}</div>
+        <div style="background-color: {{ status['status_bg_colour'] }}" class="vpnstatuscodecol">{{ status['code'] }}</div>
+        <div style="background-color: {{ status['status_bg_colour'] }}" class="vpnstatusmessagecol">{{ status['message'] }}</div>
+    </div>
+{% endfor %}
+</div>

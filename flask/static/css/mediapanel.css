@@ -1,3 +1,5 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
 body {
   margin: 0px;
   padding: 0px;
@@ -8,34 +10,7 @@ body {
   background-color: white;
   width: 100vw;
   height: 350px;
-}
-.panelcalendar {
-  display: block;
-  background-color: white;
-  width: 100vw;
-  height: 500px;
   border-width: 0px;
-  margin: 0px;
-  padding: 0px;
-  border: 0px;
-  overflow: hidden;
-}
-.panelcameras {
-  display: block;
-  background-color: black;
-  width: 100vw;
-  height: 165px;
-  border-width: 0px;
-  margin: 0px;
-  padding: 0px;
-  border: 0px;
-  overflow: hidden;
-}
-.panelvpnstat {
-  display: block;
-  background-color: white;
-  width: 100vw;
-  height: 161px;
   margin: 0px;
   padding: 0px;
   border: 0px;
@@ -52,10 +27,44 @@ body {
   border: 0px;
   overflow: hidden;
 }
+.panelcalendar {
+  display: block;
+  background-color: white;
+  width: 100vw;
+  height: 500px;
+  border-width: 0px;
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  overflow: hidden;
+}
+.panelvpnstat {
+  display: block;
+  background-color: white;
+  width: 100vw;
+  height: 320px;
+  border-width: 0px;
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  overflow: hidden;
+}
 .panelnewsframe {
   display: block;
   width: 100vw;
   height: 190px;
+  border-width: 0px;
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  overflow: hidden;
+}
+.panelcameras {
+  display: block;
+  background-color: black;
+  width: 100vw;
+  height: 300px;
+  border-width: 0px;
   margin: 0px;
   padding: 0px;
   border: 0px;
@@ -63,8 +72,9 @@ body {
 }
 .panelcontrolframe {
   display: block;
-  height: 614;
   width: 100vw;
+  height: 175px;
+  border-width: 0px;
   margin: 0px;
   padding: 0px;
   border: 0px;

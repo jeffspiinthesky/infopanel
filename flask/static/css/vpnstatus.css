@@ -1,0 +1,77 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+}
+.vpnstatus {
+  display: block;
+  background-color: white;
+  width: 100vw;
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  overflow: hidden;
+  font-family: verdana;
+  font-size: 1.5em;
+}
+.vpnstatusheader {
+  display: flex;
+  border: 1px;
+  border-style: solid;
+  border-color: #000000;
+  background-color: #cccccc;
+}
+.vpnstatusagehdrcol {
+  width: 15%;
+  border: 1px;
+  border-style: solid;
+  border-color: #000000;
+}
+.vpnstatusitemhdrcol {
+  width: 20%;
+  border: 1px;
+  border-style: solid;
+  border-color: #000000;
+}
+.vpnstatuscodehdrcol {
+  width: 10%;
+  border: 1px;
+  border-style: solid;
+  border-color: #000000;
+}
+.vpnstatusmessagehdrcol {
+  width: 55%;
+  border: 1px;
+  border-style: solid;
+  border-color: #000000;
+}
+.vpnstatusrow {
+  display: flex;
+  border: 1px;
+  border-style: solid;
+  border-color: #000000;
+}
+.vpnstatusagecol {
+  width: 15%; 
+  border: 1px;
+  border-style: solid;
+  border-color: #000000;
+}
+.vpnstatusitemcol {
+  width: 20%;
+  border: 1px;
+  border-style: solid;
+  border-color: #000000;
+}
+.vpnstatuscodecol {
+  width: 10%;
+  border: 1px;
+  border-style: solid;
+  border-color: #000000;
+}
+.vpnstatusmessagecol {
+  width: 55%;
+  border: 1px;
+  border-style: solid;
+  border-color: #000000;
+}

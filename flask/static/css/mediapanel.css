@@ -52,7 +52,7 @@ body {
 .panelnewsframe {
   display: block;
   width: 100vw;
-  height: 190px;
+  height: 370px;
   border-width: 0px;
   margin: 0px;
   padding: 0px;
@@ -63,7 +63,7 @@ body {
   display: block;
   background-color: black;
   width: 100vw;
-  height: 300px;
+  height: 205px;
   border-width: 0px;
   margin: 0px;
   padding: 0px;

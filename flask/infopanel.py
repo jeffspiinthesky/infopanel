@@ -6,7 +6,7 @@ import sqlite3
 from subprocess import run
 
 BBC_FEED = "http://feeds.bbci.co.uk/news/rss.xml?edition=uk"
-MAX_NEWS_ENTRIES = 5
+MAX_NEWS_ENTRIES = 10
 
 app = Flask(__name__)
 

@@ -12,3 +12,6 @@ cat > /etc/systemd/system/getty@tty1.service.d/autologin.conf << EOF
 ExecStart=
 ExecStart=-/sbin/agetty --autologin pi --noclear %I xterm-256color
 EOF
+
+# Notify that reboot is required
+echo "Please reboot after installation"

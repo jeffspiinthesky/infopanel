@@ -2,6 +2,9 @@
 
 chmod +x /usr/local/bin/*
 
+# Set up touchscreen rotation
+cp /usr/share/X11/xorg.conf.d/40-libinput.conf /usr/share/X11/xorg.conf.d/40-libinput.conf.orig
+cp /usr/local/infopanel/touchscreen/40-libinput.conf /usr/share/X11/xorg.conf.d/40-libinput.conf
 # Create virtual environment for Flask app
 python -m venv /usr/local/infopanel/flask/venv
 

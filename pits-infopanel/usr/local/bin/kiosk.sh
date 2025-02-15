@@ -5,8 +5,8 @@ xset s off
 xset -dpms
 xrandr -o right
 
-cd /home/pi/infopanel/flask
-/home/pi/infopanel/flask/venv/bin/python infopanel.py 2>&1 | logger &
+cd /usr/local/infopanel/flask
+/usr/local/infopanel/flask/venv/bin/python infopanel.py 2>&1 | logger &
 CHECK=""
 while [ "${CHECK}" != "0" ]
 do
@@ -18,4 +18,12 @@ done
 
 matchbox-window-manager -use_titlebar no &
 
-epiphany --profile=/home/pi/.local/share/org.gnome.Epiphany.WebApp-infopanel-7f547fb3955684764fa6453b4951ae984e70ab08 -a infopanel http://localhost:5000
+epiphany --profile=/home/pi/.local/share/org.gnome.Epiphany.WebApp-infopanel-7f547fb3955684764fa6453b4951ae984e70ab08 -a infopanel http://localhost:5000 2>&1 | logger &
+sleep 20
+#xte "key F11" -x:0
+xte "key F11" 2>&1 | logger
+
+while [ 1==1 ]
+do
+	sleep 1
+done

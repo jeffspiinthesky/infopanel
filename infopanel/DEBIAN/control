@@ -1,6 +1,6 @@
 Package: pits-infopanel
 Version: 1.0.0
-Architecture: amd64
+Architecture: armhf
 Maintainer: my_email@co.uk
 Section: PITS
 Priority: required

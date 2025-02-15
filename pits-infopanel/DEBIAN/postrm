@@ -1,5 +1,19 @@
 #!/bin/bash
 
+echo "Killing applications"
+killall python
+killall epiphany
+
+rm -rf /usr/local/infopanel/flask/venv
+
+echo "Removing autologin"
 rm -rf /etc/systemd/system/getty@tty1.service.d
 
+echo "Restoring graphical login"
+systemctl --quiet set-default graphical
+
+echo "Restoring original touchscreen config"
 mv -f /usr/share/X11/xorg.conf.d/40-libinput.conf.orig /usr/share/X11/xorg.conf.d/40-libinput.conf
+
+echo "Restoring original PI .bashrc file"
+mv -f /home/pi/.bashrc.orig /home/pi/.bashrc

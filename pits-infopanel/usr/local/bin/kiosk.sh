@@ -12,12 +12,10 @@ while [ "${CHECK}" != "0" ]
 do
 	echo "Waiting for application to become available..." | logger
 	sleep 1
-	wget --spider http://localhost:5000
+	wget -O /dev/null --spider http://localhost:5000
 	CHECK=$?
 done
 
 matchbox-window-manager -use_titlebar no &
 
-#chromium --display=:0 --kiosk --incognito --window-position=0,0 http://localhost:5000
-epiphany-browser --profile /home/pi/epiphany-profiles http://localhost:5000
-#epiphany-browser http://localhost:5000
+epiphany --profile=/home/pi/.local/share/org.gnome.Epiphany.WebApp-infopanel-7f547fb3955684764fa6453b4951ae984e70ab08 -a infopanel http://localhost:5000

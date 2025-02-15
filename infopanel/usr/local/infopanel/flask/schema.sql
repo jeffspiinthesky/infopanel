@@ -1,8 +1,0 @@
-DROP TABLE IF EXISTS status;
-
-CREATE TABLE status (
-    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
-    code INTEGER,
-    message TEXT,
-    vpn TEXT PRIMARY KEY
-);

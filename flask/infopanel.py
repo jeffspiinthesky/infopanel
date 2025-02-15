@@ -132,3 +132,6 @@ def render_status():
 @app.route('/newsdata')
 def render_news():
     return render_template('news.html', news_feed=get_news_list())
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0')

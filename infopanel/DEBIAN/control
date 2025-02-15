@@ -5,4 +5,4 @@ Maintainer: my_email@co.uk
 Section: PITS
 Priority: required
 Description: Jeffs PI in the Sky info panel
-Depends: apache2, php, php-xml, unclutter, xdotool, cmake, scdoc, pkg-config 
+Depends: zram-tools, epiphany-browser, matchbox-window-manager

@@ -2,6 +2,9 @@
 
 chmod +x /usr/local/bin/*
 
+# Create virtual environment for Flask app
+python -m venv /usr/local/infopanel/flask/venv
+
 # Set console login
 sudo systemctl --quiet set-default isolate multi-user
 

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block calendar %}
+	<link href="{{ url_for('static', filename= 'css/calendar.css') }}" rel="stylesheet"/>
+	<iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;src=jeffysmiff%40googlemail.com&amp;color=%232952A3&amp;src=%23contacts%40group.v.calendar.google.com&amp;color=%23875509&amp;src=en.uk%23holiday%40group.v.calendar.google.com&amp;color=%230F4B38&amp;ctz=Europe%2FLondon" scrolling="no" id="calendar" class="calendar"></iframe>
+{% endblock %}
+
+{% block controls %}
+	<link href="{{ url_for('static', filename= 'css/control.css') }}" rel="stylesheet"/>
+	<div class="controls">
+		<div class="controlsrow">
+			<div id="prevmonth" class="prevmonth">
+				<i class="bi-skip-backward-fill" style="font-size: 10rem; color: cornflowerblue;"></i>
+			</div>
+			<div id="nextmonth" class="nextmonth">
+				&nbsp;
+				<i class="bi-skip-forward-fill" style="font-size: 10rem; color: cornflowerblue;"></i>
+			</div>
+			<div id="refresh" class="refresh">
+				&nbsp;
+				<i class="bi-arrow-counterclockwise" style="font-size: 10rem; color: cornflowerblue;"></i>
+			</div>
+			<div id="reboot" class="reboot">
+				&nbsp;
+				<i class="bi-bootstrap-reboot" style="font-size: 10rem; color: cornflowerblue;"></i>
+			</div>
+		</div>
+	</div>
+{% endblock %}

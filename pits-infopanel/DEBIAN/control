@@ -1,0 +1,8 @@
+Package: pits-infopanel
+Version: 1.0.0
+Architecture: armhf
+Maintainer: my_email@co.uk
+Section: PITS
+Priority: required
+Description: Jeffs PI in the Sky info panel
+Depends: zram-tools, epiphany-browser, matchbox-window-manager

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<script  type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.min.js"></script>
+		<script language="javascript">
+			const setMouseEvents = (el) => {
+				$(el).mousedown(() => {
+					$(el).css("background-color","red");
+					console.log("mouse down");
+				});
+				$(el).mouseup(() => {
+					$(el).css("background-color","#cccccc");
+					console.log("mouse up");
+					switch(el) {
+						case "#prevmonth": 
+							$("#calendar").focus();
+							$.ajax({url: "/keypress?key=p", success: function(result) {console.log('p pressed');}});
+							break;
+						case "#nextmonth": 
+							$("#calendar").focus();
+							$.ajax({url: "/keypress?key=n", success: function(result) {console.log('n pressed');}});
+							break;
+						case "#refresh": 
+							$.ajax({url: "/keypress?key=5", success: function(result) {console.log('F5 pressed');}});
+							break;
+						case "#reboot": 
+							$.ajax({url: "/keypress?key=R", success: function(result) {console.log('Reboot pressed');}});
+							break;
+						default:
+							console.log('Unexpected element ' + el + ' clicked');
+					}
+				});
+			};
+			window.setInterval(() => {
+				$('#panelvpnstat').load('/vpndata');
+			}, 10000);
+			window.setInterval(() => {
+				$('#panelnewsframe').load('/newsdata');
+			}, 20000);
+			$(document).ready(function() {
+				document.body.style.cursor = "none";
+				$('#panelvpnstat').load('/vpndata');
+				$('#panelnewsframe').load('/newsdata');
+				setMouseEvents("#prevmonth");
+				setMouseEvents("#nextmonth");
+				setMouseEvents("#refresh");
+				setMouseEvents("#reboot");
+			});
+		</script>
+		<link href="{{ url_for('static', filename= 'css/mediapanel.css') }}" rel="stylesheet"/>
+        <title>{% block title %} {% endblock %}</title>
+	</head>
+
+	<body>
+		<iframe src='http://192.168.0.158/' class='paneltitle'></iframe>
+		<div id='panelcalendar' class='panelcalendar'>{% block calendar %} {% endblock %}</div>
+		<div id='panelvpnstat' class='panelvpnstat' scrolling='no'>{% block status %} {% endblock %}</div>
+		<div id='panelnewsframe' class='panelnewsframe' scrolling='no'>{% block news %} {% endblock %}</div>
+		<iframe src='http://192.168.0.124:8081/site/' class='panelcameras' scrolling='no'></iframe>
+		<div class='panelcontrolframe' scrolling='no'>{% block controls %} {% endblock %}</div>
+	</body>
+</html>

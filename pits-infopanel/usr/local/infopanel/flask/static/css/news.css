@@ -1,0 +1,55 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+}
+.news {
+  display:block;
+  width: 100vw;
+  height: 190px;
+  margin: 0px;
+  left: 0px;
+  padding: 0px;
+}
+.newsitem {
+  display: flex;
+  width: 100vw;
+  height: 34px;  
+  left: 0px;
+  margin: 0px;
+  padding: 0px;
+  border: 1px solid black;
+}
+.channel {
+  position: absolute;
+  left: 0px;
+  width: 70px;
+  height: 34px;
+}
+.headline {
+  flex-grow: 1;
+  position: absolute;
+  text-align: left;
+  vertical-align: middle;
+  font-family: verdana;
+  font-size: 1.5em;
+  line-height: 34px;
+  left: 80px;
+  display:inline-block;
+  height: 34px;
+}
+.thumbnail {
+  flex-grow: 1;
+  position: absolute;
+  right: 0px;
+  width: 70px;
+  height: 34px;
+}
+img {
+  display: block;
+}  
+.channelImage {
+  display: block;
+  width: 70px;
+  height: 34px;
+} 

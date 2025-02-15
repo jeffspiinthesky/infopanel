@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo "Killing applications"
+killall python
+killall epiphany
+
+rm -rf /usr/local/infopanel/flask/venv
+

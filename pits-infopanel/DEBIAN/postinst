@@ -31,8 +31,14 @@ chown pi:pi /home/pi/.bashrc.orig
 CHECK=$(grep xinit /home/pi/.bashrc)
 if [ -z "${CHECK}" ]
 then
-  echo "" >> /home/pi/.bashrc
-  echo 'xinit /usr/local/bin/kiosk.sh -- vt$(fgconsole)' >> /home/pi/.bashrc
+  cat > /home/pi/.bashrc << EOF
+
+CHECK=$(ps -ef | grep kiosk.sh | grep -v grep)
+if [ -z "${CHECK}" ]
+then
+	xinit /usr/local/bin/kiosk.sh -- vt$(fgconsole)
+fi
+EOF
 fi
 
 # Notify that reboot is required

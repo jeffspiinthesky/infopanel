@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8"/>
-		<script  type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.min.js"></script>
+		<script  type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 		<script language="javascript">
 			const setMouseEvents = (el) => {
 				$(el).mousedown(() => {
@@ -32,16 +32,59 @@
 					}
 				});
 			};
+			const getVpnData = () => {
+				//$('#panelvpnstat').load('/vpndata');
+				$.getJSON(
+					"/vpndata",
+					(data) => {
+						console.log("Requested status data");
+					}).done((data) => {
+						let statusOutput = "";
+						$.each( data, ( i, statusRow ) => {
+							statusOutput += "   <div class=\"vpnstatusrow\">\n" +
+											"      <div style=\"background-color: " + statusRow.time_bg_colour + "\" class=\"vpnstatusagecol\">" + statusRow.timestamp + statusRow.time_unit + "</div>\n" +
+											"      <div style=\"background-color: " + statusRow.status_bg_colour + "\" class=\"vpnstatusitemcol\">" + statusRow.vpn + "</div>\n" +
+											"      <div style=\"background-color: " + statusRow.status_bg_colour + "\" class=\"vpnstatuscodecol\">" + statusRow.code + "</div>\n" +
+											"      <div style=\"background-color: " + statusRow.status_bg_colour + "\" class=\"vpnstatusmessagecol\">" + statusRow.message + "</div>\n" +
+											"   </div>"
+
+						});
+						$('#vpnstatus').html(statusOutput);
+					}).fail(( jqxhr, textStatus, error ) => {
+    					var err = textStatus + ", " + error;
+    					console.log( "ERROR: Failed to get status data: " + err );
+					});
+			};
+			const getNewsData = () => {
+				$.getJSON(
+					"/newsdata",
+					(data) => {
+						console.log("Requested news data");
+					}).done((data) => {
+						let statusOutput = "";
+						$.each( data.news_list, ( i, newsRow ) => {
+							statusOutput += "   <div class=\"newsitem\">\n" +
+        									"      <div class=\"channel\"><img class=\"channelImage\" src=\"" + data.image + "\"/></div>\n" +
+        									"      <div class=\"headline\">" + newsRow.title + "</div>\n" +
+        									"      <div class=\"thumbnail\"><img class=\"channelImage\" src=\"" + newsRow.thumbnail + "\" alt=\"" + newsRow.title + "\"/></div>\n" +
+    										"   </div>"
+						});
+						$('#news').html(statusOutput);
+					}).fail(( jqxhr, textStatus, error ) => {
+    					var err = textStatus + ", " + error;
+    					console.log( "ERROR: Failed to get news data: " + err );
+					});
+			};
 			window.setInterval(() => {
-				$('#panelvpnstat').load('/vpndata');
+				getVpnData();
 			}, 10000);
 			window.setInterval(() => {
-				$('#panelnewsframe').load('/newsdata');
+				getNewsData();
 			}, 20000);
 			$(document).ready(function() {
 				document.body.style.cursor = "none";
-				$('#panelvpnstat').load('/vpndata');
-				$('#panelnewsframe').load('/newsdata');
+				getVpnData();
+				getNewsData();
 				setMouseEvents("#prevmonth");
 				setMouseEvents("#nextmonth");
 				setMouseEvents("#refresh");

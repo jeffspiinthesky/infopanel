@@ -7,6 +7,27 @@
 	<iframe src="<URL FROM CALENDER.GOOGLE.COM EMBED INSTRUCTIONS>" scrolling="no" id="calendar" class="calendar"></iframe>
 {% endblock %}
 
+{% block status %}
+<link href="{{ url_for('static', filename= 'css/vpnstatus.css') }}" rel="stylesheet"/>
+<script language="javascript">
+
+</script>
+<div class="vpnstatus">
+    <div class="vpnstatusheader">	
+        <div class="vpnstatusagehdrcol">Age</div>
+        <div class="vpnstatusitemhdrcol">Item</div>
+        <div class="vpnstatuscodehdrcol">Code</div>
+        <div class="vpnstatusmessagehdrcol">Message</div>
+    </div>
+	<div id="vpnstatus"></div>
+</div>
+{% endblock %}
+
+{% block news %}
+<link href="{{ url_for('static', filename= 'css/news.css') }}" rel="stylesheet"/>
+<div class="news" id="news"></div>
+{% endblock %}
+
 {% block controls %}
 	<link href="{{ url_for('static', filename= 'css/control.css') }}" rel="stylesheet"/>
 	<div class="controls">

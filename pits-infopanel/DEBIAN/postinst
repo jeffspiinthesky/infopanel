@@ -31,7 +31,7 @@ chown pi:pi /home/pi/.bashrc.orig
 CHECK=$(grep xinit /home/pi/.bashrc)
 if [ -z "${CHECK}" ]
 then
-  cat /home/pi/.bashrc.orig /usr/local/infopanel/bashrc/bashrc-update > /home/pi/.bashrc
+  cat /home/pi/.bashrc /usr/local/infopanel/bashrc/bashrc-update > /home/pi/.bashrc
 fi
 
 # Notify that reboot is required

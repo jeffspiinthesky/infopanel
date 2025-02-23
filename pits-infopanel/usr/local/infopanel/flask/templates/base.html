@@ -96,11 +96,11 @@
 	</head>
 
 	<body>
-		<iframe src='http://192.168.0.158/' class='paneltitle'></iframe>
+		<iframe src='<WEATHERSTATION_URL>' class='paneltitle'></iframe>
 		<div id='panelcalendar' class='panelcalendar'>{% block calendar %} {% endblock %}</div>
 		<div id='panelvpnstat' class='panelvpnstat' scrolling='no'>{% block status %} {% endblock %}</div>
 		<div id='panelnewsframe' class='panelnewsframe' scrolling='no'>{% block news %} {% endblock %}</div>
-		<iframe src='http://192.168.0.124:8081/site/' class='panelcameras' scrolling='no'></iframe>
+		<iframe src='<WEBCAMS_URL>' class='panelcameras' scrolling='no'></iframe>
 		<div class='panelcontrolframe' scrolling='no'>{% block controls %} {% endblock %}</div>
 	</body>
 </html>

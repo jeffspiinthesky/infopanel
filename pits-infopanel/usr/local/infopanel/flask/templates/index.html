@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block calendar %}
+	<link href="{{ url_for('static', filename= 'css/calendar.css') }}" rel="stylesheet"/>
+	<iframe src="<URL FROM CALENDER.GOOGLE.COM EMBED INSTRUCTIONS>" scrolling="no" id="calendar" class="calendar"></iframe>
+{% endblock %}
+
+{% block controls %}
+	<link href="{{ url_for('static', filename= 'css/control.css') }}" rel="stylesheet"/>
+	<div class="controls">
+		<div class="controlsrow">
+			<div id="prevmonth" class="prevmonth">
+				<i class="bi-skip-backward-fill" style="font-size: 10rem; color: cornflowerblue;"></i>
+			</div>
+			<div id="nextmonth" class="nextmonth">
+				&nbsp;
+				<i class="bi-skip-forward-fill" style="font-size: 10rem; color: cornflowerblue;"></i>
+			</div>
+			<div id="refresh" class="refresh">
+				&nbsp;
+				<i class="bi-arrow-counterclockwise" style="font-size: 10rem; color: cornflowerblue;"></i>
+			</div>
+			<div id="reboot" class="reboot">
+				&nbsp;
+				<i class="bi-bootstrap-reboot" style="font-size: 10rem; color: cornflowerblue;"></i>
+			</div>
+		</div>
+	</div>
+{% endblock %}

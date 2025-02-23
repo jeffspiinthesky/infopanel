@@ -1,6 +1,7 @@
 from datetime import datetime
 import feedparser
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, Response
+import json
 from pynput.keyboard import Key, Controller
 import sqlite3
 from subprocess import run
@@ -126,12 +127,17 @@ def process_keypress():
 @app.route('/vpndata')
 def render_status():
     status_list_db = get_status()
+    status_list = build_status_list(status_list_db)
+    data = json.dumps(status_list)
 
-    return render_template('status.html', status_list=build_status_list(status_list_db))
+    return Response(data,mimetype='application/json')
 
 @app.route('/newsdata')
 def render_news():
-    return render_template('news.html', news_feed=get_news_list())
+    news_feed = get_news_list()
+    data = json.dumps(news_feed)
+    return Response(data,mimetype='application/json')
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')

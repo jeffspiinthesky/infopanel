@@ -1,0 +1,6 @@
+
+CHECK=$(ps -ef | grep kiosk.sh | grep -v grep)
+if [ -z "${CHECK}" ]
+then
+	xinit /usr/local/bin/kiosk.sh -- vt$(fgconsole)
+fi

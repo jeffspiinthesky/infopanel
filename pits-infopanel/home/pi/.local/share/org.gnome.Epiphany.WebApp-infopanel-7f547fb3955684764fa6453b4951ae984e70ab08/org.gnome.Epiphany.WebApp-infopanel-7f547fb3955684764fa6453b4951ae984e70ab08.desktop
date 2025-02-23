@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=infopanel
+Exec=epiphany --application-mode --profile="/home/pi/.local/share/org.gnome.Epiphany.WebApp-infopanel-7f547fb3955684764fa6453b4951ae984e70ab08" http://localhost:5000/
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=GNOME;GTK;
+Icon=/home/pi/.local/share/org.gnome.Epiphany.WebApp-infopanel-7f547fb3955684764fa6453b4951ae984e70ab08/app-icon.png
+StartupWMClass=org.gnome.Epiphany.WebApp-infopanel-7f547fb3955684764fa6453b4951ae984e70ab08

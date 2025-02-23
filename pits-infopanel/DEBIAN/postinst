@@ -1,0 +1,38 @@
+#!/bin/bash
+
+chmod +x /usr/local/bin/*
+
+# Set up touchscreen rotation
+echo "Setting up rotation for touchscreen"
+cp /usr/share/X11/xorg.conf.d/40-libinput.conf /usr/share/X11/xorg.conf.d/40-libinput.conf.orig
+cp /usr/local/infopanel/touchscreen/40-libinput.conf /usr/share/X11/xorg.conf.d/40-libinput.conf
+
+# Create virtual environment for Flask app
+echo "Creating infopanel Flask application virtual environment"
+python -m venv /usr/local/infopanel/flask/venv
+/usr/local/infopanel/flask/venv/bin/pip install -r /usr/local/infopanel/flask/requirements.txt
+
+# Set console login
+echo "Setting up console mode"
+systemctl --quiet set-default multi-user
+
+# Set autologin for pi
+echo "Setting up autologin"
+mkdir -p /etc/systemd/system/getty@tty1.service.d
+cat > /etc/systemd/system/getty@tty1.service.d/autologin.conf << EOF
+[Service]
+ExecStart=
+ExecStart=-/sbin/agetty --autologin pi --noclear %I xterm-256color
+EOF
+
+# Set up autorun of app 
+cp /home/pi/.bashrc /home/pi/.bashrc.orig
+chown pi:pi /home/pi/.bashrc.orig
+CHECK=$(grep xinit /home/pi/.bashrc)
+if [ -z "${CHECK}" ]
+then
+  cat /home/pi/.bashrc.orig /usr/local/infopanel/bashrc/bashrc-update > /home/pi/.bashrc
+fi
+
+# Notify that reboot is required
+echo "Please reboot after installation"

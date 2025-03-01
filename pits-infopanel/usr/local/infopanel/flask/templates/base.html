@@ -4,34 +4,6 @@
 		<meta charset="UTF-8"/>
 		<script  type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 		<script language="javascript">
-			const setMouseEvents = (el) => {
-				$(el).mousedown(() => {
-					$(el).css("background-color","red");
-					console.log("mouse down");
-				});
-				$(el).mouseup(() => {
-					$(el).css("background-color","#cccccc");
-					console.log("mouse up");
-					switch(el) {
-						case "#prevmonth": 
-							$("#calendar").focus();
-							$.ajax({url: "/keypress?key=p", success: function(result) {console.log('p pressed');}});
-							break;
-						case "#nextmonth": 
-							$("#calendar").focus();
-							$.ajax({url: "/keypress?key=n", success: function(result) {console.log('n pressed');}});
-							break;
-						case "#refresh": 
-							$.ajax({url: "/keypress?key=5", success: function(result) {console.log('F5 pressed');}});
-							break;
-						case "#reboot": 
-							$.ajax({url: "/keypress?key=R", success: function(result) {console.log('Reboot pressed');}});
-							break;
-						default:
-							console.log('Unexpected element ' + el + ' clicked');
-					}
-				});
-			};
 			const getVpnData = () => {
 				//$('#panelvpnstat').load('/vpndata');
 				$.getJSON(
@@ -102,5 +74,35 @@
 		<div id='panelnewsframe' class='panelnewsframe' scrolling='no'>{% block news %} {% endblock %}</div>
 		<iframe src='<WEBCAMS_URL>' class='panelcameras' scrolling='no'></iframe>
 		<div class='panelcontrolframe' scrolling='no'>{% block controls %} {% endblock %}</div>
+		<script>
+			  const setMouseEvents = (el) => {
+                                $(el).mousedown(() => {
+                                        $(el).css("background-color","red");
+                                        console.log("mouse down");
+                                });
+                                $(el).mouseup(() => {
+                                        $(el).css("background-color","#cccccc");
+                                        console.log("mouse up");
+                                        switch(el) {
+                                                case "#prevmonth":
+                                                        $("#calendar").focus();
+                                                        $.ajax({url: "/keypress?key=p", success: function(result) {console.log('p pressed');}});
+                                                        break;
+                                                case "#nextmonth":
+                                                        $("#calendar").focus();
+                                                        $.ajax({url: "/keypress?key=n", success: function(result) {console.log('n pressed');}});
+                                                        break;
+                                                case "#refresh":
+                                                        $.ajax({url: "/keypress?key=5", success: function(result) {console.log('F5 pressed');}});
+                                                        break;
+                                                case "#reboot":
+                                                        $.ajax({url: "/keypress?key=R", success: function(result) {console.log('Reboot pressed');}});
+                                                        break;
+                                                default:
+                                                        console.log('Unexpected element ' + el + ' clicked');
+                                        }
+                                });
+                        };
+		</script>
 	</body>
 </html>

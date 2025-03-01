@@ -16,11 +16,12 @@ do
 	CHECK=$?
 done
 
-matchbox-window-manager -use_titlebar no &
+# matchbox-window-manager -use_titlebar no &
 
-epiphany --profile=/home/pi/.local/share/org.gnome.Epiphany.WebApp-infopanel-7f547fb3955684764fa6453b4951ae984e70ab08 -a infopanel http://localhost:5000 2>&1 | logger &
+#epiphany --profile=/home/orangepi/.local/share/org.gnome.Epiphany.WebApp_infopanel-7f547fb3955684764fa6453b4951ae984e70ab08 -a infopanel http://localhost:5000 2>&1 | logger &
+#firefox-esr --kiosk http://localhost:5000 2>&1 | logger &
+chromium-browser --kiosk http://localhost:5000 2>&1 | logger &
 sleep 20
-#xte "key F11" -x:0
 xte "key F11" 2>&1 | logger
 
 while [ 1==1 ]

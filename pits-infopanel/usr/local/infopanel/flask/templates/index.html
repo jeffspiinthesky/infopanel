@@ -4,7 +4,7 @@
 
 {% block calendar %}
 	<link href="{{ url_for('static', filename= 'css/calendar.css') }}" rel="stylesheet"/>
-	<iframe src="<URL FROM CALENDER.GOOGLE.COM EMBED INSTRUCTIONS>" scrolling="no" id="calendar" class="calendar"></iframe>
+	<iframe id="calendar" src="<URL FROM CALENDER.GOOGLE.COM EMBED INSTRUCTIONS>" style="border: 0" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>
 {% endblock %}
 
 {% block status %}
